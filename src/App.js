@@ -4,6 +4,8 @@ import './App.css';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBarExampleIcon from './appBar';
+
 
 
 
@@ -36,9 +38,12 @@ const CardExampleWithAvatar = () => (
 
 
 
+
 const App = () => (
     <MuiThemeProvider>
-        <CardExampleWithAvatar />
+        <AppBarExampleIcon />
+        <CardExampleWithAvatar/>
+
     </MuiThemeProvider>
 );
 
