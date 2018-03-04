@@ -7,9 +7,11 @@ app.set('port', (process.env.PORT || 3001));
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+
 
 app.get('/', function(request, response) {
     // response.render('pages/index')
