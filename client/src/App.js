@@ -7,7 +7,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBarExampleIcon from './appBar';
 
 
+let f = ()=>{
 
+    fetch('/api')
+        .then((response) =>{
+
+            return((response.text())).then((txt)=>alert(txt));
+        });
+
+
+}
 
 const CardExampleWithAvatar = () => (
     <Card>
@@ -29,7 +38,7 @@ const CardExampleWithAvatar = () => (
             Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
         </CardText>
         <CardActions>
-            <FlatButton label="Action1" onClick={()=>{alert ('click')}} />
+            <FlatButton label="Action1" onClick={f} />
             <FlatButton label="Action2"  onClick={()=>{alert ('click 2')}}/>
         </CardActions>
     </Card>

@@ -19,6 +19,19 @@ app.get('/', function(request, response) {
 
 });
 
+app.get('/api', function(request, response) {
+    // response.render('pages/index')
+    console.log("got request");
+
+
+    let data = {
+        "data":"yes!!!"
+    };
+    console.log(data);
+    // response.sendFile(path.join(__dirname + '/views/pages/ReactTest.html'));
+    response.send(data);
+
+});
 
 let FacebookTokenStrategy = require('passport-facebook-token');
 
