@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 if (process.env.ENV === 'production') {
+    console.log("tunning in production ");
     app.use(express.static('client/build'));
 }
 
