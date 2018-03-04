@@ -13,13 +13,13 @@ if (process.env.ENV === 'production') {
 }
 
 
-app.get('/', function(request, response) {
-    // response.render('pages/index')
-
-    // response.sendFile(path.join(__dirname + '/views/pages/ReactTest.html'));
-    response.send("encouragement!!!");
-
-});
+// app.get('/', function(request, response) {
+//     // response.render('pages/index')
+//
+//     // response.sendFile(path.join(__dirname + '/views/pages/ReactTest.html'));
+//     response.send("encouragement!!!");
+//
+// });
 
 app.get('/api', function(request, response) {
     // response.render('pages/index')
