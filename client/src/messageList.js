@@ -9,6 +9,8 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 const iconButtonElement = (
     <IconButton
@@ -28,11 +30,57 @@ const rightIconMenu = (
     </IconMenu>
 );
 
+
+
+const CardExampleWithAvatar = (props ) => (
+    <Card>
+        <CardHeader
+            title={props.title}
+            subtitle={props.subtitle}
+            avatar={props.image}
+        />
+        {/*<CardMedia*/}
+            {/*overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}*/}
+        {/*>*/}
+            {/*<img src="./cover.png" alt="" />*/}
+        {/*</CardMedia>*/}
+        {/*<CardTitle title="Card title" subtitle="Card subtitle" />*/}
+        <CardText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+            {/*Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.*/}
+            {/*Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.*/}
+        </CardText>
+        <CardActions>
+            <IconButton  aria-label="Delete" onClick={()=>{alert("ok")}}>
+                <DeleteIcon />
+            </IconButton>
+            <IconButton  aria-label="Delete" onClick={()=>{alert("ok2")}}>
+                <DeleteIcon />
+            </IconButton>
+            {/*<FlatButton label="Action1" onClick={()=>{alert("ok")}} />*/}
+            {/*<FlatButton label="Action2"  onClick={()=>{alert ('click 2')}}/>*/}
+        </CardActions>
+    </Card>
+);
+
+
 const ListExampleMessages = () => (
     <div>
         <dic>
             <List>
                 <Subheader>Today</Subheader>
+
+                <CardExampleWithAvatar title = "Uri" subtitle = "zonens" image = "download.jpeg"/>
+                <Divider inset = {true}/>
+
+                <CardExampleWithAvatar title = "Gur" subtitle = "Harel" image = "bodyArm.jpg"/>
+                <Divider inset = {true}/>
+
+                <CardExampleWithAvatar title = "Gur" subtitle = "Harel" image = "bodyArm.jpg"/>
+                <Divider inset = {true}/>
+
+
                 <ListItem
                     leftAvatar={<Avatar src="download.jpeg" />}
                     primaryText="I'd like to buy some coins"
