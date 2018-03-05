@@ -33,19 +33,36 @@ const ListExampleMessages = () => (
             <List>
                 <Subheader>Today</Subheader>
                 <ListItem
-                    leftAvatar={<Avatar src="images/ok-128.jpg" />}
-                    primaryText="Brunch this weekend?"
+                    leftAvatar={<Avatar src="download.jpeg" />}
+                    primaryText="I'd like to buy some coins"
                     secondaryText={
                         <p>
                             <span style={{color: darkBlack}}>Brendan Lim</span> --
                             I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
                         </p>
+
                     }
+
                     secondaryTextLines={2}
                 />
                 <Divider inset={true} />
                 <ListItem
-                    leftAvatar={<Avatar src="images/kolage-128.jpg" />}
+                    leftAvatar={<Avatar src="download.jpeg" />}
+                    primaryText="I'd like to buy some coins too!"
+                    secondaryText={
+                        <p>
+                            <span style={{color: darkBlack}}>Brendan Lim</span> --
+                            I&apos;looking to buy coins in t.a
+                        </p>
+
+                    }
+
+                    secondaryTextLines={2}
+                />
+                <Divider inset={true} />
+
+                <ListItem
+                    leftAvatar={<Avatar src="download.jpeg" />}
                     primaryText={
                         <p>Summer BBQ&nbsp;&nbsp;<span style={{color: lightBlack}}>4</span></p>
                     }
@@ -59,7 +76,7 @@ const ListExampleMessages = () => (
                 />
                 <Divider inset={true} />
                 <ListItem
-                    leftAvatar={<Avatar src="images/uxceo-128.jpg" />}
+                    leftAvatar={<Avatar src="bodyArm.jpg" />}
                     primaryText="Oui oui"
                     secondaryText={
                         <p>
@@ -71,7 +88,7 @@ const ListExampleMessages = () => (
                 />
                 <Divider inset={true} />
                 <ListItem
-                    leftAvatar={<Avatar src="images/kerem-128.jpg" />}
+                    leftAvatar={<Avatar src="download.jpg" />}
                     primaryText="Birdthday gift"
                     secondaryText={
                         <p>
@@ -83,7 +100,7 @@ const ListExampleMessages = () => (
                 />
                 <Divider inset={true} />
                 <ListItem
-                    leftAvatar={<Avatar src="images/raquelromanp-128.jpg" />}
+                    leftAvatar={<Avatar src="download.jpg" />}
                     primaryText="Recipe to try"
                     secondaryText={
                         <p>
