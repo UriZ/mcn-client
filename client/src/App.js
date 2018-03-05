@@ -5,6 +5,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBarExampleIcon from './appBar';
+import ListExampleMessages from "./messageList";
 
 
 let f = ()=>{
@@ -52,6 +53,7 @@ const App = () => (
     <MuiThemeProvider>
         <AppBarExampleIcon />
         <CardExampleWithAvatar/>
+        <ListExampleMessages/>
 
     </MuiThemeProvider>
 );
