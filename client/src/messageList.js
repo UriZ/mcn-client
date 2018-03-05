@@ -4,10 +4,11 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
-import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 const iconButtonElement = (
     <IconButton
@@ -117,7 +118,11 @@ const ListExampleMessages = () => (
                 <Subheader>Today</Subheader>
                 <ListItem
                     leftAvatar={<Avatar src="images/ok-128.jpg" />}
-                    rightIconButton={rightIconMenu}
+                    rightIconButton={
+                        <IconButton  aria-label="Delete">
+                            <DeleteIcon />
+                        </IconButton>
+                    }
                     primaryText="Brendan Lim"
                     secondaryText={
                         <p>
@@ -127,6 +132,9 @@ const ListExampleMessages = () => (
                     }
                     secondaryTextLines={2}
                 />
+                <IconButton  aria-label="Delete">
+                    <DeleteIcon />
+                </IconButton>
                 <Divider inset={true} />
                 <ListItem
                     leftAvatar={<Avatar src="images/kolage-128.jpg" />}
