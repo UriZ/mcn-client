@@ -243,39 +243,40 @@ const FeedData = () => (
 );
 
 
-class Feed extends React.Component{
-
-    constructor(props){
-        super(props);
-    };
-
-    render(match, location, history) {
-        return(
-        <MuiThemeProvider>
-            <FeedData/>
-            <div>
-                <button onClick={
-                    this.props.onLogoutClick
-
-                }>Log out</button>
-            </div>
-        </MuiThemeProvider>
-        );
-    }
-};
-
-// const Feed = (onLogoutClick) =>(
-//     <MuiThemeProvider>
-//         <FeedData/>
-//         <div>
-//             <button onClick={
-//                 onLogoutClick
+// class Feed extends React.Component{
 //
-//             }>Log out</button>
-//         </div>
-//     </MuiThemeProvider>
+//     constructor(props){
+//         super(props);
+//     };
 //
-// );
+//     render(match, location, history) {
+//         return(
+//         <MuiThemeProvider>
+//             <FeedData/>
+//             <div>
+//                 <button onClick={
+//                     this.props.onLogoutClick
+//
+//                 }>Log out</button>
+//             </div>
+//         </MuiThemeProvider>
+//         );
+//     }
+// };
+
+const Feed = ({match, location, history, onLogoutClick}) =>(
+    <MuiThemeProvider>
+        <FeedData/>
+        <div>
+            <button onClick={
+
+                 onLogoutClick
+
+            }>Log out</button>
+        </div>
+    </MuiThemeProvider>
+
+);
 
 
 
