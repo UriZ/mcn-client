@@ -10,7 +10,9 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {connect} from "react-redux";
+import {logout} from "./Actions/actions";
 
 const iconButtonElement = (
     <IconButton
@@ -65,7 +67,7 @@ const CardExampleWithAvatar = (props ) => (
 );
 
 
-const ListExampleMessages = () => (
+const FeedData = () => (
     <div>
         <dic>
             <List>
@@ -240,4 +242,60 @@ const ListExampleMessages = () => (
     </div>
 );
 
-export default ListExampleMessages;
+
+class Feed extends React.Component{
+
+    constructor(props){
+        super(props);
+    };
+
+    render(match, location, history) {
+        return(
+        <MuiThemeProvider>
+            <FeedData/>
+            <div>
+                <button onClick={
+                    this.props.onLogoutClick
+
+                }>Log out</button>
+            </div>
+        </MuiThemeProvider>
+        );
+    }
+};
+
+// const Feed = (onLogoutClick) =>(
+//     <MuiThemeProvider>
+//         <FeedData/>
+//         <div>
+//             <button onClick={
+//                 onLogoutClick
+//
+//             }>Log out</button>
+//         </div>
+//     </MuiThemeProvider>
+//
+// );
+
+
+
+
+
+const mapStateToProps = (state)=>{
+    return state;
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        onLogoutClick: () => {
+            alert("logout!!!!!");
+            dispatch(logout("Uri logged out"));
+        }
+    }
+}
+
+
+const connectedFeed = connect (mapStateToProps, mapDispatchToProps)(Feed);
+export default connectedFeed;
+
+

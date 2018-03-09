@@ -5,8 +5,17 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBarExampleIcon from './appBar';
-import ListExampleMessages from "./messageList";
+import Feed from "./Feed";
+import ConnectedLoginPage from "./Login";
+import ConnectedFeed from "./Feed";
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    withRouter
+} from "react-router-dom";
 
 let f = ()=>{
 
@@ -48,35 +57,35 @@ const CardExampleWithAvatar = () => (
 
 
 
+//
+// const App = () => (
+//     <MuiThemeProvider>
+//         <AppBarExampleIcon />
+//         <CardExampleWithAvatar/>
+//         <Feed/>
+//
+//     </MuiThemeProvider>
+// );
+
 
 const App = () => (
-    <MuiThemeProvider>
-        <AppBarExampleIcon />
-        <CardExampleWithAvatar/>
-        <ListExampleMessages/>
+    <Router>
+        <div>
 
-    </MuiThemeProvider>
+            <ul>
+                <li>
+                    <Link to="/feed">feed</Link>
+                </li>
+                <li>
+                    <Link to="/login">login page</Link>
+                </li>
+            </ul>
+            <Route path="/feed" component={ConnectedFeed} />
+            <Route path="/login" component={ConnectedLoginPage} />
+        </div>
+    </Router>
 );
 
 
-
-
-
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;
