@@ -2,6 +2,8 @@ import './Login.css';
 import React, { Component } from 'react';
 import App from "./App";
 import { connect } from 'react-redux'
+import FacebookLogin from 'react-facebook-login';
+// import FBLogin from './FBLogin'
 
 import {login} from './Actions/actions'
 import {
@@ -19,6 +21,7 @@ class LoginPage extends React.Component {
         // }
     };
     render(match, location, history) {
+
 
         if (this.props.loggedIn == true){
 
@@ -41,12 +44,28 @@ class LoginPage extends React.Component {
                         }>Log in</button>
                     </div>
 
+                    {/*<FacebookLogin*/}
+                        {/*appId="1151370004993163"*/}
+                        {/*autoLoad={true}*/}
+                        {/*fields="name,email,picture"*/}
+                        {/*onClick={()=>alert("ok")}*/}
+                        {/*callback={responseFacebook} />*/}
+
+                    {/*<fb:login-button scope="public_profile,email,user_friends" onlogin={checkLoginState()}>*/}
+                    {/*</fb:login-button>*/}
+
+                    {/*<FBLogin/>*/}
+
                 </div>
             );
         }
     }
 }
 
+
+const responseFacebook = (response) => {
+    alert(response);
+}
 
 const mapStateToProps = (state)=>{
     return state;

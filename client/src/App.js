@@ -8,7 +8,6 @@ import AppBarExampleIcon from './appBar';
 import Feed from "./Feed";
 import ConnectedLoginPage from "./Login";
 import ConnectedFeed from "./Feed";
-
 import {
     BrowserRouter as Router,
     Route,

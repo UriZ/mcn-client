@@ -13,6 +13,11 @@ function mcnReduce(state = initialState, action) {
         case LOGIN:
 
             alert("reduced login");
+            alert("fb login " + window.FB.login);
+            (window.fbAsyncInit());
+
+            // setTimeout(function(){ window.FB.login(); }, 5000);
+
             // switch state to logged in
             return Object.assign({}, state, {
                 loggedIn: true
