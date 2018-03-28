@@ -14,7 +14,18 @@ function mcnReduce(state = initialState, action) {
 
             alert("reduced login");
             alert("fb login " + window.FB.login);
-            (window.fbAsyncInit());
+            // (window.fbAsyncInit());
+
+            // window.FB.getLoginStatus(function(response) {
+            //     if (response.status === 'connected') {
+            //         alert('Logged in.');
+            //     }
+            //     else {
+            //         window.FB.login();
+            //         alert(window.FB.getAuthResponse().accessToken);
+            //
+            //     }
+            // });
 
             // setTimeout(function(){ window.FB.login(); }, 5000);
 

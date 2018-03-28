@@ -44,17 +44,7 @@ class LoginPage extends React.Component {
                         }>Log in</button>
                     </div>
 
-                    {/*<FacebookLogin*/}
-                        {/*appId="1151370004993163"*/}
-                        {/*autoLoad={true}*/}
-                        {/*fields="name,email,picture"*/}
-                        {/*onClick={()=>alert("ok")}*/}
-                        {/*callback={responseFacebook} />*/}
 
-                    {/*<fb:login-button scope="public_profile,email,user_friends" onlogin={checkLoginState()}>*/}
-                    {/*</fb:login-button>*/}
-
-                    {/*<FBLogin/>*/}
 
                 </div>
             );
