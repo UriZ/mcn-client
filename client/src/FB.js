@@ -62,8 +62,8 @@ class FBLogin extends React.Component{
         console.log('Welcome!  Fetching your information.... ');
         window.FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
+            alert(
+                'Thanks for logging in, ' + response.name + '!');
         });
     }
 
@@ -81,13 +81,13 @@ class FBLogin extends React.Component{
             FBLogin.testAPI();
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
+            alert('Please log ' +
+                'into this app.');
         } else {
             // The person is not logged into Facebook, so we're not sure if
             // they are logged into this app or not.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
+           alert('Please log ' +
+                'into Facebook.');
         }
     }
 
@@ -95,7 +95,6 @@ class FBLogin extends React.Component{
 // Button.  See the onlogin handler attached to it in the sample
 // code below.
     static checkLoginState() {
-        alert("ok");
         window.FB.getLoginStatus(function(response) {
              FBLogin.statusChangeCallback(response);
         }.bind(this));
@@ -103,6 +102,7 @@ class FBLogin extends React.Component{
 
      static handleClick() {
         window.FB.login(FBLogin.checkLoginState());
+         this.props.onLoginClick();
     }
 
     // render() {
@@ -116,8 +116,8 @@ class FBLogin extends React.Component{
 
 
 
-    render(match, location, history) {
-
+    render() {
+        alert("location" + this.props.location);
 
         if (this.props.loggedIn == true){
 
@@ -161,7 +161,7 @@ const mapDispatchToProps = (dispatch)=>{
     return {
         onLoginClick: () => {
             alert("login1!!!!!");
-            FBLogin.handleClick();
+            // FBLogin.handleClick();
             dispatch(login("Uri logged in"));
         }
     }

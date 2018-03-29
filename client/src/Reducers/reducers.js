@@ -13,21 +13,35 @@ function mcnReduce(state = initialState, action) {
         case LOGIN:
 
             alert("reduced login");
-            alert("fb login " + window.FB.login);
             // (window.fbAsyncInit());
 
-            // window.FB.getLoginStatus(function(response) {
-            //     if (response.status === 'connected') {
-            //         alert('Logged in.');
-            //     }
-            //     else {
-            //         window.FB.login();
-            //         alert(window.FB.getAuthResponse().accessToken);
-            //
-            //     }
-            // });
+            window.FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    alert('user is conencted to app and fb ');
+                    alert(window.FB.getAuthResponse().accessToken);
 
-            // setTimeout(function(){ window.FB.login(); }, 5000);
+                }
+                else if (response.status === 'not_authorized')
+                {
+                    window.FB.login();
+                    alert("user logged in to fb but not the app ")
+                }
+                else {
+                    alert("user not logged in to fb or app ")
+                    window.FB.login((response)=>{
+                        if (response.authResponse) {
+
+
+                            alert(window.FB.getAuthResponse().accessToken);
+
+
+
+                        }
+                    });
+
+                }
+            });
+
 
             // switch state to logged in
             return Object.assign({}, state, {
@@ -36,6 +50,9 @@ function mcnReduce(state = initialState, action) {
         case LOGOUT:
             // switch state to logged in
             alert("reduced logout");
+            window.FB.logout();
+
+
 
 
 

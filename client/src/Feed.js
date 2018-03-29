@@ -13,6 +13,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {connect} from "react-redux";
 import {logout} from "./Actions/actions";
+import {Redirect} from "react-router-dom";
 
 const iconButtonElement = (
     <IconButton
@@ -243,41 +244,42 @@ const FeedData = () => (
 );
 
 
-// class Feed extends React.Component{
-//
-//     constructor(props){
-//         super(props);
-//     };
-//
-//     render(match, location, history) {
-//         return(
-//         <MuiThemeProvider>
-//             <FeedData/>
-//             <div>
-//                 <button onClick={
-//                     this.props.onLogoutClick
-//
-//                 }>Log out</button>
-//             </div>
-//         </MuiThemeProvider>
-//         );
-//     }
-// };
 
-const Feed = ({match, location, history, onLogoutClick}) =>(
-    <MuiThemeProvider>
-        <FeedData/>
-        <div>
-            <button onClick={
 
-                 onLogoutClick
+class Feed extends React.Component {
 
-            }>Log out</button>
-        </div>
-    </MuiThemeProvider>
+    constructor(props){
+        super(props);
+    }
 
-);
+    render() {
+        alert(JSON.stringify(this.props));
+        // alert("match " + match);
+        if (this.props.loggedIn == false) {
 
+            return <Redirect
+                to="/login"
+            />
+        }
+        else {
+
+            return (
+                <MuiThemeProvider>
+                    <FeedData/>
+                    <div>
+                        <button onClick={
+
+                            this.props.onLogoutClick
+
+                        }>Log out
+                        </button>
+                    </div>
+                </MuiThemeProvider>
+
+            )
+        }
+    };
+}
 
 
 

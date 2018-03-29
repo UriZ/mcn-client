@@ -20,9 +20,9 @@ class LoginPage extends React.Component {
         //     loggedIn: false
         // }
     };
-    render(match, location, history) {
+    render() {
 
-
+            alert(JSON.stringify(this.props.location));
         if (this.props.loggedIn == true){
 
             return  <Redirect
