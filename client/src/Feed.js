@@ -253,13 +253,9 @@ class Feed extends React.Component {
     }
 
     render() {
-        alert(JSON.stringify(this.props));
-        // alert("match " + match);
         if (this.props.loggedIn == false) {
 
-            return <Redirect
-                to="/login"
-            />
+            return <Redirect to="/login"/>
         }
         else {
 
@@ -267,15 +263,10 @@ class Feed extends React.Component {
                 <MuiThemeProvider>
                     <FeedData/>
                     <div>
-                        <button onClick={
-
-                            this.props.onLogoutClick
-
-                        }>Log out
+                        <button onClick={this.props.onLogoutClick}>Log out
                         </button>
                     </div>
                 </MuiThemeProvider>
-
             )
         }
     };
@@ -291,7 +282,6 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
     return {
         onLogoutClick: () => {
-            alert("logout!!!!!");
             dispatch(logout("Uri logged out"));
         }
     }

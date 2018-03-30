@@ -54,19 +54,6 @@ const CardExampleWithAvatar = () => (
 );
 
 
-
-
-//
-// const App = () => (
-//     <MuiThemeProvider>
-//         <AppBarExampleIcon />
-//         <CardExampleWithAvatar/>
-//         <Feed/>
-//
-//     </MuiThemeProvider>
-// );
-
-
 const App = () => (
     <Router>
         <div>

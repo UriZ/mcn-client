@@ -15,19 +15,12 @@ class LoginPage extends React.Component {
     constructor(props){
 
         super(props);
-
-        // this.state = {
-        //     loggedIn: false
-        // }
     };
     render() {
 
-            alert(JSON.stringify(this.props.location));
         if (this.props.loggedIn == true){
 
-            return  <Redirect
-                to="/feed"
-            />
+            return  <Redirect to="/feed"/>
         }
         else{
 
@@ -43,9 +36,6 @@ class LoginPage extends React.Component {
 
                         }>Log in</button>
                     </div>
-
-
-
                 </div>
             );
         }
@@ -53,9 +43,7 @@ class LoginPage extends React.Component {
 }
 
 
-const responseFacebook = (response) => {
-    alert(response);
-}
+
 
 const mapStateToProps = (state)=>{
     return state;
@@ -64,7 +52,6 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
     return {
         onLoginClick: () => {
-            alert("login1!!!!!");
             dispatch(login("Uri logged in"));
         }
     }
