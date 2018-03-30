@@ -25,7 +25,6 @@ class LoginPage extends React.Component {
         window.FB.getLoginStatus(function(response) {
 
             if (response.status === 'connected') {
-
                 // user is connected to the app and to FB - no need to login to fb just change the state
                 that.props.dispatchLogin();
             }
@@ -36,7 +35,6 @@ class LoginPage extends React.Component {
                 window.FB.login((response)=>{
 
                     if (response.status === 'connected'){
-                        // alert(window.FB.getAuthResponse().accessToken);
 
                         // successfull login - change state
                         that.props.dispatchLogin();
@@ -44,7 +42,7 @@ class LoginPage extends React.Component {
                     else{
                         // user did not login - nothing happened
                     }
-                });
+                },{scope:'user_friends', return_scopes: true});
             }
         });
     }
