@@ -252,6 +252,16 @@ class Feed extends React.Component {
         super(props);
     }
 
+    logout(){
+        // keep that since FB logout is in the global scope
+        let that = this;
+        window.FB.logout((response)=>{
+            // change the state after successfull logout
+            that.props.dispatchLogout();
+        });
+    }
+
+
     render() {
         if (this.props.loggedIn == false) {
 
@@ -263,7 +273,8 @@ class Feed extends React.Component {
                 <MuiThemeProvider>
                     <FeedData/>
                     <div>
-                        <button onClick={this.props.onLogoutClick}>Log out
+                        {/* bind this so that we have access to props later on */}
+                        <button onClick={this.logout.bind(this)}>Log out
                         </button>
                     </div>
                 </MuiThemeProvider>
@@ -281,7 +292,8 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        onLogoutClick: () => {
+        dispatchLogout: () => {
+
             dispatch(logout("Uri logged out"));
         }
     }

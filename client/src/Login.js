@@ -16,6 +16,41 @@ class LoginPage extends React.Component {
 
         super(props);
     };
+
+
+
+    login(){
+        // keep that since all the FB actions are in the global scope
+        let that = this;
+        window.FB.getLoginStatus(function(response) {
+
+            if (response.status === 'connected') {
+
+                // user is connected to the app and to FB - no need to login to fb just change the state
+                that.props.dispatchLogin();
+            }
+            else if (response.status === 'not_authorized' || response.status ==='unknown')
+            {
+
+                // user not connected to the app - need to login
+                window.FB.login((response)=>{
+
+                    if (response.status === 'connected'){
+                        // alert(window.FB.getAuthResponse().accessToken);
+
+                        // successfull login - change state
+                        that.props.dispatchLogin();
+                    }
+                    else{
+                        // user did not login - nothing happened
+                    }
+                });
+            }
+        });
+    }
+
+
+
     render() {
 
         if (this.props.loggedIn == true){
@@ -31,10 +66,8 @@ class LoginPage extends React.Component {
                     <h1>Login using fb</h1>
 
                     <div>
-                        <button onClick={
-                            this.props.onLoginClick
-
-                        }>Log in</button>
+                        {/* bind this to have access to props later on */}
+                        <button onClick={this.login.bind(this)}>Log in</button>
                     </div>
                 </div>
             );
@@ -51,7 +84,7 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        onLoginClick: () => {
+        dispatchLogin: () => {
             dispatch(login("Uri logged in"));
         }
     }
