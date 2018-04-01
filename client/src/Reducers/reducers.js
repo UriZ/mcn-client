@@ -1,10 +1,12 @@
 import {
     LOGIN,
-    LOGOUT
+    LOGOUT,
+    POPULATE_FEED
 } from '../Actions/actions'
 
 let initialState = {
-    loggedIn: false
+    loggedIn: false,
+    feed:[]
 }
 
 function mcnReduce(state = initialState, action) {
@@ -20,11 +22,15 @@ function mcnReduce(state = initialState, action) {
     }
     else if (action.type === "LOGOUT"){
 
+        alert(action.text);
         return Object.assign({}, state, {
             loggedIn: false
         })
-
-
+    }
+    else if (action.type === "POPULATE_FEED"){
+        return Object.assign({}, state, {
+            feed: action.payload
+        })
     }
     else{
         return state;

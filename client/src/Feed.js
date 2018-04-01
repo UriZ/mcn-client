@@ -12,7 +12,7 @@ import DeleteIcon from 'material-ui-icons/Delete';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {connect} from "react-redux";
-import {logout} from "./Actions/actions";
+import {logout,popUlateFeed} from "./Actions/actions";
 import {Redirect} from "react-router-dom";
 
 const iconButtonElement = (
@@ -245,11 +245,40 @@ const FeedData = () => (
 
 
 
-
 class Feed extends React.Component {
 
     constructor(props){
         super(props);
+    }
+
+
+
+
+    getMatch(){
+
+        // create authorisation header
+        let accessToken = window.FB.getAuthResponse().accessToken;
+        let authHeader = "Bearer " + accessToken;
+
+
+        fetch('/match',{
+            method: 'GET',
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "authorization":authHeader
+            })
+        }).then((response) =>{
+
+                if (!response.ok){
+                    throw new Error("network error")
+                }
+                return response.json();
+        }).then((jsonArray)=>{
+            // update feed data in store
+            this.props.dispatchFeedData(jsonArray) ;
+        }).catch((error)=>{
+            alert(error + error.message);
+        });
     }
 
     logout(){
@@ -262,6 +291,24 @@ class Feed extends React.Component {
     }
 
 
+
+    renderFeed(){
+
+        alert("rendering");
+        let feed =  this.props.feed.map((elem, index)=>{
+
+            return (
+                <div>
+                <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}/>
+                <Divider inset = {true}/>
+                </div>
+            )
+
+        });
+        return feed;
+
+    }
+
     render() {
         if (this.props.loggedIn == false) {
 
@@ -271,11 +318,19 @@ class Feed extends React.Component {
 
             return (
                 <MuiThemeProvider>
-                    <FeedData/>
+                    {this.renderFeed()}
+                    {/*<FeedData/>*/}
                     <div>
                         {/* bind this so that we have access to props later on */}
                         <button onClick={this.logout.bind(this)}>Log out
                         </button>
+                    </div>
+                    <div>
+
+
+                        <button onClick={this.getMatch.bind(this)}>fetch
+                        </button>
+
                     </div>
                 </MuiThemeProvider>
             )
@@ -295,6 +350,9 @@ const mapDispatchToProps = (dispatch)=>{
         dispatchLogout: () => {
 
             dispatch(logout("Uri logged out"));
+        },
+        dispatchFeedData: (jsonArray)=>{
+            dispatch(popUlateFeed(jsonArray));
         }
     }
 }

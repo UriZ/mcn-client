@@ -35,6 +35,7 @@ class LoginPage extends React.Component {
                 // user not connected to the app - need to login
                 window.FB.login((response)=>{
 
+
                     if (response.status === 'connected'){
                         alert(response.authResponse.accessToken);
 
