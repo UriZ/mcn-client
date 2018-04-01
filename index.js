@@ -52,14 +52,19 @@ let getMatch = (request, response)=>{
 
         requestPromise(options)
             .then(function (result) {
-                console.log("success finding a match");
-
+                console.log("success finding a match!");
                 response.status(200).send(result);
             })
             .catch(function (err) {
+                if (err.statusCode){
+                    console.log("error while finding a match: " + err);
+                    response.status(err.statusCode).send(err);
+                }
+                else{
+                    console.log("unknown error - returning 500: " + err);
+                    response.status(500).send(err);
 
-                console.log("error finding match " +  err);
-                response.status(500).send(err);
+                }
             });
 };
 
