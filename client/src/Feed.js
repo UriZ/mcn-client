@@ -268,7 +268,6 @@ class Feed extends React.Component {
                 "authorization":authHeader
             })
         }).then((response) =>{
-
                 if (!response.ok){
                     throw new Error("network error")
                 }
@@ -294,7 +293,6 @@ class Feed extends React.Component {
 
     renderFeed(){
 
-        alert("rendering");
         let feed =  this.props.feed.map((elem, index)=>{
 
             return (
