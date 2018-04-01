@@ -22,7 +22,6 @@ function mcnReduce(state = initialState, action) {
     }
     else if (action.type === "LOGOUT"){
 
-        alert(action.text);
         return Object.assign({}, state, {
             loggedIn: false
         })

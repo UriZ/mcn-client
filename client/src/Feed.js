@@ -347,7 +347,7 @@ const mapDispatchToProps = (dispatch)=>{
     return {
         dispatchLogout: () => {
 
-            dispatch(logout("Uri logged out"));
+            dispatch(logout("logging out"));
         },
         dispatchFeedData: (jsonArray)=>{
             dispatch(popUlateFeed(jsonArray));
