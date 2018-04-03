@@ -12,7 +12,7 @@ import DeleteIcon from 'material-ui-icons/Delete';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {connect} from "react-redux";
-import {logout,popUlateFeed} from "./Actions/actions";
+import {errorGettingFeed, gettingFeedData, logout, popUlateFeed} from "./Actions/actions";
 import {Redirect} from "react-router-dom";
 
 const iconButtonElement = (
@@ -252,14 +252,26 @@ class Feed extends React.Component {
     }
 
 
+    /**
+     * get feed data when component is loaded
+     */
+    componentDidMount(){
+
+        return this.getMatch();
+    }
 
 
+    /**
+     * get feed data from backend, disaptch data to store
+     */
     getMatch(){
 
         // create authorisation header
         let accessToken = window.FB.getAuthResponse().accessToken;
-        let authHeader = "Bearer " + accessToken;
+         let authHeader = "Bearer " + accessToken;
 
+        // set the loading state in the store
+        this.props.dispatchGettingFeedData();
 
         fetch('/match',{
             method: 'GET',
@@ -270,7 +282,6 @@ class Feed extends React.Component {
         }).then((response) =>{
                 if (!response.ok){
                     throw new Error(response.status)
-
                 }
                 return response.json();
         }).then((jsonArray)=>{
@@ -284,7 +295,7 @@ class Feed extends React.Component {
             }
             else /*if (error.message === "500")*/{
                 // we either got 500 or 400 from the backend, or there is no internet etc
-                alert("soemthing went wrong...try again");
+                this.props.dispatchErrorGettingFeed();
             }
         });
     }
@@ -302,8 +313,19 @@ class Feed extends React.Component {
 
     renderFeed(){
 
-
-        if (this.props.feed.length == 0){
+        if (this.props.isFeedLoading){
+            return (
+                // todo create spinner
+                <div>loading...</div>
+            )
+        }
+        else if (this.props.feed == null){
+            return (
+                // todo create error component
+                <div>something went wrong...</div>
+            )
+        }
+        else if (this.props.feed.length == 0){
 
             return (
                 <div>
@@ -372,7 +394,13 @@ const mapDispatchToProps = (dispatch)=>{
         },
         dispatchFeedData: (jsonArray)=>{
             dispatch(popUlateFeed(jsonArray));
-        }
+        },
+        dispatchGettingFeedData: ()=>{
+            dispatch(gettingFeedData());
+        },
+        dispatchErrorGettingFeed: ()=>{
+            dispatch(errorGettingFeed());
+        },
     }
 }
 
