@@ -265,18 +265,27 @@ class Feed extends React.Component {
             method: 'GET',
             headers: new Headers({
                 "Content-Type": "application/json",
-                "authorization":authHeader
+                "authorization": authHeader
             })
         }).then((response) =>{
                 if (!response.ok){
-                    throw new Error("network error")
+                    throw new Error(response.status)
+
                 }
                 return response.json();
         }).then((jsonArray)=>{
             // update feed data in store
             this.props.dispatchFeedData(jsonArray) ;
         }).catch((error)=>{
-            alert(error + error.message);
+            if (error.message === "401"){
+
+                // need to relogin - so set the state to logout
+                this.props.dispatchLogout();
+            }
+            else /*if (error.message === "500")*/{
+                // we either got 500 or 400 from the backend, or there is no internet etc
+                alert("soemthing went wrong...try again");
+            }
         });
     }
 
@@ -293,17 +302,29 @@ class Feed extends React.Component {
 
     renderFeed(){
 
-        let feed =  this.props.feed.map((elem, index)=>{
+
+        if (this.props.feed.length == 0){
 
             return (
                 <div>
-                <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}/>
-                <Divider inset = {true}/>
+                    you dont have any matches right now...
                 </div>
-            )
+            );
+        }
+        else{
+            let feed =  this.props.feed.map((elem, index)=>{
 
-        });
-        return feed;
+                return (
+                    <div>
+                        <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}/>
+                        <Divider inset = {true}/>
+                    </div>
+                )
+
+            });
+            return feed;
+        }
+
 
     }
 
