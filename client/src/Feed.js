@@ -49,8 +49,7 @@ const CardExampleWithAvatar = (props ) => (
         {/*</CardMedia>*/}
         {/*<CardTitle title="Card title" subtitle="Card subtitle" />*/}
         <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+            I would like to {props.preferences.operation} {props.preferences.amount} {props.preferences.currency}
             {/*Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.*/}
             {/*Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.*/}
         </CardText>
@@ -338,7 +337,8 @@ class Feed extends React.Component {
 
                 return (
                     <div>
-                        <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}/>
+                        <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}
+                        preferences = {elem.preferences} />
                         <Divider inset = {true}/>
                     </div>
                 )
