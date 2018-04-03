@@ -366,13 +366,7 @@ class Feed extends React.Component {
                         <button onClick={this.logout.bind(this)}>Log out
                         </button>
                     </div>
-                    <div>
 
-
-                        <button onClick={this.getMatch.bind(this)}>fetch
-                        </button>
-
-                    </div>
                 </MuiThemeProvider>
             )
         }
