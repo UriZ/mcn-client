@@ -71,11 +71,23 @@ export default class SelectFieldExampleFloatingLabel extends Component {
                 </SelectField>
                 <br />
                 <SelectField
+                    autoWidth = {true}
                     value={this.state.value}
                     onChange={this.handleChange}
                     floatingLabelText={this.props.label}
-                    floatingLabelStyle={{background: 'cyan',
-                        color: 'red'}}
+                    menuStyle = {{
+                        color: 'red'
+
+                    }}
+                    floatingLabelStyle={{backgroundColor: "#d2fbff",
+
+                        color: '#2c5a71'}}
+                    style={{
+                        margin: '0 auto',
+                        border: '2px solid #FF9800',
+                        backgroundColor: '#ffd699',
+                        borderRadius: '25px'
+                    }}
                 >
                     {this.renderItems()}
                 </SelectField>

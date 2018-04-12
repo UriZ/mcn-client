@@ -5,9 +5,11 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBarExampleIcon from './appBar';
-import Feed from "./Feed";
+import Feed from "./ConnectedFeed";
 import ConnectedLoginPage from "./Login";
-import ConnectedFeed from "./Feed";
+import ConnectedFeed from "./ConnectedFeed";
+import MenuItem from 'material-ui/MenuItem';
+
 import {
     BrowserRouter as Router,
     Route,
@@ -15,6 +17,7 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
+import SelectFieldExampleFloatingLabel from "./FeedFilter";
 
 let f = ()=>{
 
@@ -54,22 +57,38 @@ const CardExampleWithAvatar = () => (
 );
 
 
-const App = () => (
-    <Router>
-        <div>
+const App = () =>
 
-            <ul>
-                <li>
-                    <Link to="/feed">feed</Link>
-                </li>
-                <li>
-                    <Link to="/login">login page</Link>
-                </li>
-            </ul>
-            <Route path="/feed" component={ConnectedFeed} />
+
+
+    (
+        <Router>
+            <div>
+                <Redirect to="/login"/>
+
+                <Route path="/feed" component={ConnectedFeed} />
             <Route path="/login" component={ConnectedLoginPage} />
-        </div>
-    </Router>
+            </div>
+        </Router>
+
+    //
+    // <Router>
+    //     <div>
+    //
+    //         <ul>
+    //             <li>
+    //                 <Link to="/feed">feed</Link>
+    //             </li>
+    //             <li>
+    //                 <Link to="/login">login page</Link>
+    //             </li>
+    //         </ul>
+    //         <Route path="/feed" component={ConnectedFeed} />
+    //         <Route path="/login" component={ConnectedLoginPage} />
+    //         <SelectFieldExampleFloatingLabel label={"currency"} items = {["bitcoin", "ether", "dogcoin"]}/>
+    //
+    //     </div>
+    // </Router>
 );
 
 
