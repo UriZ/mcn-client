@@ -80,9 +80,21 @@ class Feed extends React.Component{
         else{
             let feed =  this.props.feed.map((elem, index)=>{
 
+                // calculate friend degree
+                let friendDegree = "";
+                if (elem.friendDegree == 1){
+                    friendDegree = "1st";
+                }
+                else if (elem.friendDegree == 2){
+                    friendDegree = "2nd";
+                }
+
+
+
                 return (
+
                     <div>
-                        <CardExampleWithAvatar title = {elem.userName} subtitle = {elem.friendDegree == 2 ? "2nd" : ""} image = {elem.profilePic}
+                        <CardExampleWithAvatar title = {elem.userName} subtitle = {friendDegree} image = {elem.profilePic}
                                                preferences = {elem.preferences} degree = {elem.friendDegree} mutualFriends={elem.commonFriends}/>
                         <Divider inset = {false}/>
 
