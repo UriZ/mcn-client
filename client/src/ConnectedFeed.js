@@ -15,7 +15,7 @@ import {connect} from "react-redux";
 import {errorGettingFeed, gettingFeedData, logout, popUlateFeed} from "./Actions/actions";
 import {Redirect} from "react-router-dom";
 import ApplicationBar from "./appBar";
-import Feed from "./Feed";
+import Feed from "./Components/Feed";
 import {cyan500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';

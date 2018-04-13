@@ -5,7 +5,7 @@ import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 import Avatar from 'material-ui/Avatar';
-
+import MutualFriends from './MutualFriends'
 
 
 const CardExampleWithAvatar = (props ) => (
@@ -31,12 +31,13 @@ const CardExampleWithAvatar = (props ) => (
             <IconButton  aria-label="Delete" onClick={()=>{alert("ok2")}}>
                 <DeleteIcon />
             </IconButton>
-            <div>
-                {props.mutualFriends?
-                    ( <Avatar style= {{height:'25px', width:'25px'}}alt="Remy Sharp" src={props.mutualFriends[0].picture.data.url}/>)
-                    : ""}
+            {/*<div>*/}
+                {/*{props.mutualFriends?*/}
+                    {/*( <Avatar style= {{height:'25px', width:'25px'}}alt="Remy Sharp" src={props.mutualFriends[0].picture.data.url}/>)*/}
+                    {/*: ""}*/}
 
-            </div>
+            {/*</div>*/}
+            <MutualFriends mutualFriends={props.mutualFriends}/>
             {/*<FlatButton label="Action1" onClick={()=>{alert("ok")}} />*/}
             {/*<FlatButton label="Action2"  onClick={()=>{alert ('click 2')}}/>*/}
         </CardActions>
