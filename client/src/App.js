@@ -5,9 +5,9 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBarExampleIcon from './appBar';
-import Feed from "./ConnectedFeed";
+import Feed from "./ConnectedComponents/ConnectedFeed";
 import ConnectedLoginPage from "./Login";
-import ConnectedFeed from "./ConnectedFeed";
+import ConnectedFeed from "./ConnectedComponents/ConnectedFeed";
 import MenuItem from 'material-ui/MenuItem';
 
 import {
