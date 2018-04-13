@@ -16,6 +16,20 @@ import {errorGettingFeed, gettingFeedData, logout, popUlateFeed} from "./Actions
 import {Redirect} from "react-router-dom";
 import ApplicationBar from "./appBar";
 import Feed from "./Feed";
+import {cyan500} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import muiTheme from './Themes'
+
+//
+// const muiTheme = getMuiTheme({
+//     palette: {
+//         textColor: cyan500,
+//     },
+//     appBar: {
+//         height: 50,
+//     },
+// });
 // const iconButtonElement = (
 //     <IconButton
 //         touch={true}
@@ -312,7 +326,7 @@ class ConnectedFeed extends React.Component {
             // change the state after successfull logout
             that.props.dispatchLogout();
         });
-    }
+    };
 
 
 
@@ -357,6 +371,8 @@ class ConnectedFeed extends React.Component {
     //
     // }
 
+
+
     render() {
         if (this.props.loggedIn == false) {
 
@@ -365,11 +381,13 @@ class ConnectedFeed extends React.Component {
         else {
 
             return (
-                <MuiThemeProvider>
+                <div>
+                <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
                     <ApplicationBar logout={this.logout.bind(this)}/>
                     {/*{this.renderFeed()}*/}
                     <Feed feed={this.props.feed} isFeedLoading={this.props.isFeedLoading} />
                 </MuiThemeProvider>
+                </div>
             )
         }
     };

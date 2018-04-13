@@ -4,6 +4,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
+import Avatar from 'material-ui/Avatar';
 
 
 
@@ -26,12 +27,16 @@ const CardExampleWithAvatar = (props ) => (
             {/*Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.*/}
         </CardText>
         <CardActions>
-            <IconButton  aria-label="Delete" onClick={()=>{alert("ok")}}>
-                <DeleteIcon />
-            </IconButton>
+
             <IconButton  aria-label="Delete" onClick={()=>{alert("ok2")}}>
                 <DeleteIcon />
             </IconButton>
+            <div>
+                {props.mutualFriends?
+                    ( <Avatar style= {{height:'25px', width:'25px'}}alt="Remy Sharp" src={props.mutualFriends[0].picture.data.url}/>)
+                    : ""}
+
+            </div>
             {/*<FlatButton label="Action1" onClick={()=>{alert("ok")}} />*/}
             {/*<FlatButton label="Action2"  onClick={()=>{alert ('click 2')}}/>*/}
         </CardActions>
@@ -76,8 +81,8 @@ class Feed extends React.Component{
 
                 return (
                     <div>
-                        <CardExampleWithAvatar title = {elem.userName} subtitle = "" image = {elem.profilePic}
-                                               preferences = {elem.preferences} />
+                        <CardExampleWithAvatar title = {elem.userName} subtitle = {elem.friendDegree == 2 ? "2nd" : ""} image = {elem.profilePic}
+                                               preferences = {elem.preferences} degree = {elem.friendDegree} mutualFriends={elem.commonFriends}/>
                         <Divider inset = {false}/>
 
                     </div>
