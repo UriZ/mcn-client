@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 import Avatar from 'material-ui/Avatar';
 import MutualFriends from './MutualFriends'
+import FeedCard from "./FeedCard";
 
 
 const CardExampleWithAvatar = (props ) => (
@@ -94,7 +95,7 @@ class Feed extends React.Component{
                 return (
 
                     <div>
-                        <CardExampleWithAvatar title = {elem.userName} subtitle = {friendDegree} image = {elem.profilePic}
+                        <FeedCard title = {elem.userName} subtitle = {friendDegree} image = {elem.profilePic}
                                                preferences = {elem.preferences} degree = {elem.friendDegree} mutualFriends={elem.commonFriends}/>
                         <Divider inset = {false}/>
 
