@@ -45,24 +45,7 @@ const App = () =>
             </div>
         </Router>
 
-    //
-    // <Router>
-    //     <div>
-    //
-    //         <ul>
-    //             <li>
-    //                 <Link to="/feed">feed</Link>
-    //             </li>
-    //             <li>
-    //                 <Link to="/login">login page</Link>
-    //             </li>
-    //         </ul>
-    //         <Route path="/feed" component={ConnectedFeed} />
-    //         <Route path="/login" component={ConnectedLoginPage} />
-    //         <SelectFieldExampleFloatingLabel label={"currency"} items = {["bitcoin", "ether", "dogcoin"]}/>
-    //
-    //     </div>
-    // </Router>
+
 );
 
 
