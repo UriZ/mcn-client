@@ -11,6 +11,7 @@ export default class MainFilterDrawer extends React.Component {
         this.state = {open: false};
     }
 
+    // open / close drawer
     handleToggle = () => this.setState({open: !this.state.open});
 
     render() {
@@ -20,8 +21,12 @@ export default class MainFilterDrawer extends React.Component {
                     label="filter"
                     onClick={this.handleToggle}
                 />
-                <Drawer open={this.state.open}>
-                    <FilterDrawer filterValues={["bitcoin", "dogcoin", "ether", "lumicoin"]} onParentClick={this.handleToggle.bind(this)}/>
+                <Drawer open={this.state.open} width="100%">
+                    <FilterDrawer filterName="action" defaultChecked={"buy"} filterValues={["buy", "sell", "all"]} toggleParent={this.handleToggle.bind(this)}/>
+                    <FilterDrawer filterName="coin" defaultChecked={"bitcoin"} filterValues={["bitcoin", "dogcoin", "ether", "lumicoin"]} toggleParent={this.handleToggle.bind(this)}/>
+                    <FilterDrawer filterName="amount" defaultChecked={"100$"} filterValues={["100$", "1000$", "5k$", ">10k$"]} toggleParent={this.handleToggle.bind(this)}/>
+                    <FilterDrawer filterName="connection" defaultChecked={"all"} filterValues={["all", "1st", "1st + 2nd"]} toggleParent={this.handleToggle.bind(this)}/>
+
                 </Drawer>
             </div>
         );
