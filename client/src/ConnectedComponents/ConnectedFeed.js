@@ -20,7 +20,8 @@ import {cyan500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import muiTheme from '../Themes'
-
+import TabsNavigation from '../Components/TabsNavigation'
+import MainFilterDrawer from "../Components/MainFilterDrawer";
 //
 // const muiTheme = getMuiTheme({
 //     palette: {
@@ -382,8 +383,15 @@ class ConnectedFeed extends React.Component {
 
             return (
                 <div>
+                    <a href="https://m.me/100024549967409">
+                        Message us on Facebook
+                    </a>
+
+
                 <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
                     <ApplicationBar logout={this.logout.bind(this)}/>
+                    <MainFilterDrawer/>
+                    {/*<TabsNavigation/>*/}
                     {/*{this.renderFeed()}*/}
                     <Feed feed={this.props.feed} isFeedLoading={this.props.isFeedLoading} />
                 </MuiThemeProvider>
