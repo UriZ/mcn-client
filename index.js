@@ -120,7 +120,7 @@ let getUserPref = (request, response)=>{
 
     // options for service api call
     let options = {
-        method: 'get',
+        method: 'GET',
         uri: SERVICE_API_URL+'users/preferences',
         headers: {
             'authorization': tokenHeader
