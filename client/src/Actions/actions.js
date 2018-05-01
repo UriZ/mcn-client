@@ -4,6 +4,7 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const GETTING_FEED_DATA = "GETTING_FEED_DATA";
 export const ERROR_GETTING_FEED = "ERROR_GETTING_FEED";
+export const GET_USER_PREF = "GET_USER_PREF";
 
 export function errorGettingFeed(){
     return {
@@ -18,6 +19,13 @@ export function login(text) {
 
 export function logout(text) {
     return { type: LOGOUT, text }
+};
+
+export function getUserPref(prefObject) {
+    return {
+        type: GET_USER_PREF,
+        payload:prefObject
+    }
 };
 
 export function gettingFeedData(){

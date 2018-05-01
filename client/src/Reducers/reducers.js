@@ -7,7 +7,8 @@ import {
 let initialState = {
     loggedIn: false,
     feed:[],
-    isFeedLoading:false
+    isFeedLoading:false,
+    userPref:{}
     // loading:false
 }
 
@@ -49,6 +50,11 @@ function mcnReduce(state = initialState, action) {
             feed: null,
             isFeedLoading:false
 
+        })
+    }
+    else if (action.type === "GET_USER_PREF"){
+        return Object.assign({}, state, {
+            userPref:action.payload
         })
     }
 

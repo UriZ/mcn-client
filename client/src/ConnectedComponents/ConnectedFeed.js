@@ -22,6 +22,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import muiTheme from '../Themes'
 import TabsNavigation from '../Components/TabsNavigation'
 import MainFilterDrawer from "../Components/MainFilterDrawer";
+import RaisedButton from 'material-ui/RaisedButton';
+import ConnectedFilter from "./ConnectedFilter"
 //
 // const muiTheme = getMuiTheme({
 //     palette: {
@@ -390,7 +392,13 @@ class ConnectedFeed extends React.Component {
 
                 <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
                     <ApplicationBar logout={this.logout.bind(this)}/>
-                    <MainFilterDrawer/>
+                    <div >
+                        <ConnectedFilter/>
+                        <RaisedButton
+                            label="go"
+                            onClick={this.getMatch.bind(this)}
+                        />
+                    </div>
                     {/*<TabsNavigation/>*/}
                     {/*{this.renderFeed()}*/}
                     <Feed feed={this.props.feed} isFeedLoading={this.props.isFeedLoading} />
