@@ -64,7 +64,7 @@ export default class MainFilterDrawer extends React.Component {
         let  userPref = this.state.userPref;
         return (
             <div>
-                <RaisedButton
+                <RaisedButton className={"MainFilterElement"}
                     label="filter"
                     onClick={this.handleToggle}
                 />

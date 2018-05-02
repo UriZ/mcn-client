@@ -24,7 +24,7 @@ import TabsNavigation from '../Components/TabsNavigation'
 import MainFilterDrawer from "../Components/MainFilterDrawer";
 import RaisedButton from 'material-ui/RaisedButton';
 import ConnectedFilter from "./ConnectedFilter"
-//
+import '../Components/filterBar.css'
 // const muiTheme = getMuiTheme({
 //     palette: {
 //         textColor: cyan500,
@@ -392,11 +392,13 @@ class ConnectedFeed extends React.Component {
 
                 <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
                     <ApplicationBar logout={this.logout.bind(this)}/>
-                    <div >
-                        <ConnectedFilter/>
+                    <div className={"filterBar"}>
+                        <ConnectedFilter />
                         <RaisedButton
                             label="go"
                             onClick={this.getMatch.bind(this)}
+                            className={"goButton"}
+
                         />
                     </div>
                     {/*<TabsNavigation/>*/}
