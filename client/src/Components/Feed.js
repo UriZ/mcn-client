@@ -56,7 +56,7 @@ class Feed extends React.Component{
                 return (
 
                     <div>
-                        <FeedCard title = {elem.userName} subtitle = {friendDegree} image = {elem.profilePic}
+                        <FeedCard id = {elem._id} title = {elem.userName} subtitle = {friendDegree} image = {elem.profilePic}
                                                preferences = {elem.preferences} degree = {elem.friendDegree} mutualFriends={elem.commonFriends}/>
                         <Divider inset = {false}/>
 

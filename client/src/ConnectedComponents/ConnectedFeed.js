@@ -378,10 +378,6 @@ class ConnectedFeed extends React.Component {
 
     render() {
 
-        let id = window.FB.getAuthResponse().userID;
-        let messenger = "https://m.facebook.com/messages/compose?ids=" + id;
-
-
         if (this.props.loggedIn == false) {
 
             return <Redirect to="/login"/>
@@ -390,10 +386,6 @@ class ConnectedFeed extends React.Component {
 
             return (
                 <div>
-                    <a href={messenger}>
-                        Message us on Facebook
-                    </a>
-
 
                 <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
                     <ApplicationBar logout={this.logout.bind(this)}/>

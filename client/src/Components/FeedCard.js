@@ -1,7 +1,7 @@
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
-
+import RaisedButton from 'material-ui/RaisedButton';
 import MutualFriends from './MutualFriends'
 
 /**
@@ -12,6 +12,11 @@ class FeedCard extends React.Component{
         super(props);
     }
     render(){
+
+        let id = this.props.id;
+        // let messenger = "https://m.facebook.com/messages/compose?ids=" + id;
+        let facebook = "https://www.facebook.com/"+id;
+
 
         return (
             <Card>
@@ -25,6 +30,7 @@ class FeedCard extends React.Component{
                 </CardText>
                 <CardActions>
                     <MutualFriends mutualFriends={this.props.mutualFriends}/>
+                    <RaisedButton label="Connect on facebook" primary={true} href={facebook}/>
                 </CardActions>
             </Card>
         )
