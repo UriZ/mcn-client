@@ -279,7 +279,9 @@ class ConnectedFeed extends React.Component {
      */
     componentDidMount(){
 
-        return this.getMatch();
+        // a very ugly hack - if we are not logged in we will route to a different page - so we dont need this code to run
+        if (this.props.loggedIn)
+            return this.getMatch();
     }
 
 
@@ -377,12 +379,12 @@ class ConnectedFeed extends React.Component {
 
 
     render() {
-
         if (this.props.loggedIn == false) {
 
             return <Redirect to="/login"/>
         }
         else {
+
 
             return (
                 <div>
