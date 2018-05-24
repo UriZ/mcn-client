@@ -80,33 +80,50 @@ class LoginPage extends React.Component {
     login(){
         // keep that since all the FB actions are in the global scope
         let that = this;
-        window.FB.getLoginStatus(function(response) {
-
-            if (response.status === 'connected') {
-                alert(response.authResponse.accessToken);
-                // user is connected to the app and to FB - no need to login to fb just change the state
-                that.props.dispatchLogin();
-            }
-            else if (response.status === 'not_authorized' || response.status ==='unknown')
-            {
-
-                // user not connected to the app - need to login
-                window.FB.login((response)=>{
+        window.FB.login((response)=>{
 
 
-                    if (response.status === 'connected'){
-                        alert(response.authResponse.accessToken);
+            if (response.status === 'connected'){
 
-                        // successfull login - change state
-                        that.props.dispatchLogin();
+
+                // create authorisation header
+                let accessToken = window.FB.getAuthResponse().accessToken;
+                let authHeader = "Bearer " + accessToken;
+
+                fetch('/users',{
+                    method: 'GET',
+                    headers: new Headers({
+                        "Content-Type": "application/json",
+                        "authorization": authHeader
+                    })
+                }).then((response) =>{
+                    if (!response.ok){
+                        response.json().then((res)=>{
+
+                            alert("failed to login");
+
+                        });
                     }
                     else{
-                        // user did not login - nothing happened
+                        // continue with login
+                        that.props.dispatchLogin();
                     }
-                },{scope:'user_friends', return_scopes: true});
+                }).catch((error)=>{
+                    // this is some network error - show error
+                    alert("failed to login");
+                });
             }
-        });
+            else{
+                // user did not login - nothing happened
+            }
+        },{scope:'user_friends', return_scopes: true});
     }
+
+
+
+
+
+
 
 
 

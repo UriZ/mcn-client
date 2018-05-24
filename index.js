@@ -74,6 +74,44 @@ app.get('/match', getMatch);
 
 
 
+let getUser = (request, response)=>{
+
+    // get token from header
+    let tokenHeader = request.headers['authorization'];
+
+    // options for service api call
+    let options = {
+        method: 'get',
+        uri: SERVICE_API_URL+'users',
+        headers: {
+            'authorization': tokenHeader
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
+
+
+    requestPromise(options)
+        .then(function (result) {
+            console.log("success getting a user");
+            response.status(200).send(result);
+        })
+        .catch(function (err) {
+
+            if (err.statusCode){
+                console.log("error getting user from db  : " + JSON.stringify(err.error));
+                // we use err.error since request promise transforms the err object
+                response.status(err.statusCode).send(err.error);
+            }
+            else{
+                console.log("unknown error - returning 500: " + JSON.stringify(err.error));
+                response.status(500).send(err.error);
+
+            }
+        });
+};
+
+
+app.get('/users',getUser);
 
 let createUser = (request, response)=>{
 
