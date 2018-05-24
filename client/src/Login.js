@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import FacebookLogin from 'react-facebook-login';
 // import FBLogin from './FBLogin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import ApplicationBar from "./appBar";
 
 import {login} from './Actions/actions'
@@ -100,8 +99,9 @@ class LoginPage extends React.Component {
                     if (!response.ok){
                         response.json().then((res)=>{
 
-                            alert("failed to login");
-
+                            if (res.errorCode && res.errorCode == "NO_USER"){
+                                alert("signup");
+                            }
                         });
                     }
                     else{
