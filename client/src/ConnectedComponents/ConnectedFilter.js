@@ -88,7 +88,7 @@ class ConnectedFilter extends React.Component{
             else /*if (error.message === "500")*/{
                 // we either got 500 or 400 from the backend, or there is no internet etc
                 // this.props.dispatchErrorGettingFeed();
-                alert(error);
+                alert("temp error when updating pref");
             }
         });
     }
