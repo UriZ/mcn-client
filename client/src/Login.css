@@ -8,3 +8,35 @@
     text-align: center;
     background: aliceblue;
 }
+
+.loginScreen{
+    background-color: #7299db;
+    height: 100%;
+    text-align: center;
+}
+
+html, body, #root, #root>div {
+    height: 100%
+}
+
+a {
+    color:blue;
+}
+.header{
+    /*text-align: center;*/
+    font-weight: bold;
+    color: ghostwhite;
+    font-size: xx-large;
+}
+.subHeader{
+    /*text-align: center;*/
+    color: ghostwhite;
+    font-size: small;
+
+}
+
+.loginSection{
+
+    color: ghostwhite;
+    font-size: small;
+}

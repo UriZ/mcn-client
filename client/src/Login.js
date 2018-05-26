@@ -6,6 +6,7 @@ import FacebookLogin from 'react-facebook-login';
 // import FBLogin from './FBLogin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ApplicationBar from "./appBar";
+import RaisedButton from 'material-ui/RaisedButton';
 
 import {login} from './Actions/actions'
 import {
@@ -137,26 +138,61 @@ class LoginPage extends React.Component {
 
             return (
 
-                <div>
+                <div className="loginScreen">
+                    {/*<MuiThemeProvider>*/}
+
+                    {/*<ApplicationBar/>*/}
+                    {/*</MuiThemeProvider>*/}
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <p className="header">
+                        Trade with people you trust
+                    </p>
+                    <p className="subHeader">
+                        No hassle
+                    </p>
+                    <p className="subHeader">
+                        No wait
+                    </p>
+                    <p className="subHeader">
+                        No commission
+                    </p>
+
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
                     <MuiThemeProvider>
-
-                    <ApplicationBar/>
+                    <RaisedButton label="Signup with facebook" onClick={this.signUp.bind(this)}/>
                     </MuiThemeProvider>
-                    <div className="login">
-                        <h1>Login using fb</h1>
-
-                        <div>
-                            {/* bind this to have access to props later on */}
-                            <button onClick={this.login.bind(this)}>Log in</button>
-                        </div>
+                    <br></br>
+                    <div className="loginSection">
+                       already a member? <a onClick={this.login.bind(this)}> login </a>
                     </div>
 
+                    {/*<div className="login">*/}
+                        {/*<h1>Login using fb</h1>*/}
 
-                    <div className= "signup">
-                        <button onClick={this.signUp.bind(this)}>sign up</button>
+                        {/*<div>*/}
+                            {/*/!* bind this to have access to props later on *!/*/}
+                            {/*<button onClick={this.login.bind(this)}>Log in</button>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
 
 
-                    </div>
+                    {/*<div className= "signup">*/}
+                        {/*<button onClick={this.signUp.bind(this)}>sign up</button>*/}
+
+
+                    {/*</div>*/}
 
 
                 </div>
