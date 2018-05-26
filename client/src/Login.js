@@ -30,7 +30,6 @@ class LoginPage extends React.Component {
         window.FB.login((response)=>{
 
             if (response.status === 'connected'){
-                alert(response.authResponse.accessToken);
 
                 // try and create a user in the db. If it already exists - simply continue with login. else create it and login
 
