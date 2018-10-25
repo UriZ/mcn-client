@@ -70,7 +70,7 @@ export default class MainFilterDrawer extends React.Component {
                 />
                 <Drawer open={this.state.open} width="100%">
                     <FilterDrawer filterName="operation" defaultChecked={userPref.operation} filterValues={["buy", "sell", "all"]} onPreferenceChanged={this.onPreferenceChanged.bind(this)}/>
-                    <FilterDrawer filterName="currency" defaultChecked={userPref.currency} filterValues={["bitcoin", "dogcoin", "ether", "lumicoin"]} onPreferenceChanged={this.onPreferenceChanged.bind(this)}/>
+                    <FilterDrawer filterName="currency" defaultChecked={userPref.currency} filterValues={["bitcoin", "dogecoin", "ether", "lumicoin"]} onPreferenceChanged={this.onPreferenceChanged.bind(this)}/>
                     <FilterDrawer filterName="amount" defaultChecked={userPref.amount} filterValues={["100$", "1000$", "5k$", ">10k$"]} onPreferenceChanged={this.onPreferenceChanged.bind(this)}/>
                     {/*<FilterDrawer filterName="connection" defaultChecked={"all"} filterValues={["all", "1st", "1st + 2nd"]} onPreferenceChanged={this.onPreferenceChanged.bind(this)}/>*/}
                 </Drawer>
