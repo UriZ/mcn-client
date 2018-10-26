@@ -9,8 +9,7 @@ let bodyParser = require('body-parser')
 const SERVICE_API_URL = 'https://mcn-service-api.herokuapp.com/api/';
 app.set('port', (process.env.PORT || 3001));
 
-// app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname , '/public')));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 
