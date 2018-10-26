@@ -20,7 +20,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "concurrently": "3.1.0",
+    "concurrently": "^4.0.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
