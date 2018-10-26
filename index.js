@@ -1,7 +1,7 @@
 let express = require('express');
 let passport = require('passport');
 let app = express();
-let path = require('path');
+// let path = require('path');
 let requestPromise = require('request-promise');
 let bodyParser = require('body-parser')
 

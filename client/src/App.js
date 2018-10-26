@@ -8,16 +8,7 @@ import {
     Route,
 } from "react-router-dom";
 
-let f = ()=>{
 
-    fetch('/api')
-        .then((response) =>{
-
-            return((response.text())).then((txt)=>alert(txt));
-        });
-
-
-}
 
 
 const App = () =>

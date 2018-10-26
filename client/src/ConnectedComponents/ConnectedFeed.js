@@ -1,24 +1,24 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+// import {List, ListItem} from 'material-ui/List';
+// import Divider from 'material-ui/Divider';
+// import Subheader from 'material-ui/Subheader';
+// import Avatar from 'material-ui/Avatar';
+// import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+// import IconMenu from 'material-ui/IconMenu';
+// import MenuItem from 'material-ui/MenuItem';
+// import IconButton from 'material-ui/IconButton';
+// import DeleteIcon from 'material-ui-icons/Delete';
+// import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {connect} from "react-redux";
 import {errorGettingFeed, gettingFeedData, logout, popUlateFeed} from "../Actions/actions";
 import {Redirect} from "react-router-dom";
 import ApplicationBar from "../appBar";
 import Feed from "../Components/Feed";
-import {cyan500} from 'material-ui/styles/colors';
+// import {cyan500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import muiTheme from '../Themes'
 import RaisedButton from 'material-ui/RaisedButton';
 import ConnectedFilter from "./ConnectedFilter"

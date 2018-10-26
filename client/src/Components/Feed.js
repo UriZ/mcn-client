@@ -1,11 +1,11 @@
 import React from "react";
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+// import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
-import Avatar from 'material-ui/Avatar';
-import MutualFriends from './MutualFriends'
+// import IconButton from 'material-ui/IconButton';
+// import DeleteIcon from 'material-ui-icons/Delete';
+// import Avatar from 'material-ui/Avatar';
+// import MutualFriends from './MutualFriends'
 import FeedCard from "./FeedCard";
 
 

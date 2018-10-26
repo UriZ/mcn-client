@@ -1,6 +1,6 @@
 import './Login.css';
 import React, { Component } from 'react';
-import App from "./App";
+// import App from "./App";
 import { connect } from 'react-redux'
 import FacebookLogin from 'react-facebook-login';
 // import FBLogin from './FBLogin'
