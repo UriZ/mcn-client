@@ -38,7 +38,7 @@ class ConnectedFilter extends React.Component{
             }
             return response.json();
         }).then((jsonObject)=>{
-            // update feed data in store
+            // update pref data in store
             this.props.dispatchPrefData(jsonObject) ;
         }).catch((error)=>{
             if (error.message === "401"){
