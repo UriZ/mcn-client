@@ -9,7 +9,6 @@ export const GET_USER_PREF = "GET_USER_PREF";
 export function errorGettingFeed(){
     return {
         type: ERROR_GETTING_FEED,
-
     }
 };
 

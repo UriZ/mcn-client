@@ -2,7 +2,7 @@ import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 import FilterDrawer from "./FilterDrawer";
-//TODO we dont need to keep the user pref as sstate - and update it in store. either or
+//TODO we dont need to keep the user pref as state - and update it in store. either or
 /**
  * display all the filters as nested drawers
  */
@@ -33,7 +33,7 @@ export default class MainFilterDrawer extends React.Component {
 
 
     /**
-     * one of the child fitlers was selected - update state
+     * one of the child filters was selected - update state
      * @param filterName
      * @param selected
      */

@@ -14,7 +14,6 @@ class FeedCard extends React.Component{
     render(){
 
         let id = this.props.id;
-        // let messenger = "https://m.facebook.com/messages/compose?ids=" + id;
         let facebook = "https://www.facebook.com/"+id;
 
 

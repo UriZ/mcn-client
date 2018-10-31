@@ -1,16 +1,10 @@
 import React from "react";
-// import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-
 import Divider from 'material-ui/Divider';
-// import IconButton from 'material-ui/IconButton';
-// import DeleteIcon from 'material-ui-icons/Delete';
-// import Avatar from 'material-ui/Avatar';
-// import MutualFriends from './MutualFriends'
 import FeedCard from "./FeedCard";
 
 
 /**
- * given an array of feed elements - render a feed
+ * given an array of feed elements - render the feed
  */
 class Feed extends React.Component{
 
@@ -61,9 +55,7 @@ class Feed extends React.Component{
                         <Divider inset = {false}/>
 
                     </div>
-
                 )
-
             });
             return feed;
         }

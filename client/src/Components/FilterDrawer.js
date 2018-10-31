@@ -5,7 +5,7 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
 /**
- * a filter built as a  menu with several meuitems - the filter options
+ * a filter built as a  menu with several menuitems - the filter options
  * when clicked - it passes the selected element to the parent
  */
 export default class FilterDrawer extends React.Component {
