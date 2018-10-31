@@ -1,7 +1,6 @@
 import './Login.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import FBLogin from './FBLogin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -135,10 +134,7 @@ class LoginPage extends React.Component {
             return (
 
                 <div className="loginScreen">
-                    {/*<MuiThemeProvider>*/}
 
-                    {/*<ApplicationBar/>*/}
-                    {/*</MuiThemeProvider>*/}
                     <br></br>
                     <br></br>
                     <br></br>
@@ -174,27 +170,7 @@ class LoginPage extends React.Component {
                        already a member? <a onClick={this.login.bind(this)}> login </a>
                     </div>
 
-                    {/*<div className="login">*/}
-                        {/*<h1>Login using fb</h1>*/}
-
-                        {/*<div>*/}
-                            {/*/!* bind this to have access to props later on *!/*/}
-                            {/*<button onClick={this.login.bind(this)}>Log in</button>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-
-
-                    {/*<div className= "signup">*/}
-                        {/*<button onClick={this.signUp.bind(this)}>sign up</button>*/}
-
-
-                    {/*</div>*/}
-
-
                 </div>
-
-
-
 
             );
         }
