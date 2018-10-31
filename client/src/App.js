@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ConnectedLoginPage from "./Login";
+import ConnectedLoginPage from "./ConnectedComponents/Login";
 import ConnectedFeed from "./ConnectedComponents/ConnectedFeed";
 
 import {

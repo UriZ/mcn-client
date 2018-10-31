@@ -1,10 +1,10 @@
-import './Login.css';
+import '../Login.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import {login} from './Actions/actions'
+import {login} from '../Actions/actions'
 import {
 
     Redirect
